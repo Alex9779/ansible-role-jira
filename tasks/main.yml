@@ -148,7 +148,7 @@
     - { dest: "/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/crowd.properties", owner: "jira", group: "jira" }
     - { dest: "/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/seraph-config.xml", owner: "jira", group: "jira" }
   notify:
-    - systemctl daemon-reload
+    - jira | systemctl daemon-reload
   tags: jira
 
 - name: prepare files
@@ -172,6 +172,10 @@
     dest: "/opt/atlassian/jira/version_{{ jira_version }}"
     state: touch
   when: version_file.stat.exists == false
+  tags: jira
+
+- name: flush handlers
+  meta: flush_handlers
   tags: jira
 
 - name: enable service
