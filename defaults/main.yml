@@ -31,6 +31,16 @@ jira_jvm_support_recommended_args: "-Datlassian.plugins.enable.wait=300 -XX:+Unl
 # Session timeout.
 jira_session_timeout: "300"
 
+# Crowd SSO
+# before enabling the Jira instance has to be configured for Crowd!
+# see https://confluence.atlassian.com/crowd/integrating-crowd-with-atlassian-jira-192625.html
+jira_crowdsso_enabled: "false"
+jira_crowdsso_appname: "username"
+jira_crowdsso_apppass: "password"
+jira_crowdsso_apploginurl: "http://localhost:8095/crowd/console/"
+jira_crowdsso_crowdserverurl: "http://localhost:8095/crowd/services/"
+jira_crowdsso_crowdbaseurl: "http://localhost:8095/crowd/"
+
 # URL for download archives.
 jira_version: "8.1.0"
 jira_download:
